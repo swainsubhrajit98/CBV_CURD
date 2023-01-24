@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from App.views import *
-
+from django.urls import re_path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Home/',Home.as_view(),name='Home'),
     path('School_List/',School_List.as_view(),name='School_List'),
+    re_path('(?P<pk>\d+)/',School_Detail.as_view(),name='detail'),
+    path('School_Create/',School_Create.as_view(),name='School_Create'),
+
 ]
